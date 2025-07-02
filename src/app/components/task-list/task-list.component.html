@@ -1,0 +1,23 @@
+<div class="task-container">
+  <mat-card *ngFor="let task of tasks" appearance="outlined">
+    <mat-card-header class="task-header">
+      <mat-card-title>
+        {{ task.title }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="task-content">
+      <div [ngClass]="{ completed: task.completed }">
+        <mat-checkbox [checked]="task.completed" (change)="toggle(task)">
+        </mat-checkbox>
+
+        <span >
+          Category: {{ task.category }}
+        </span>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-icon-button color="warn" (click)="delete(task)">🗑</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
